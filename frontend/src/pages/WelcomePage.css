@@ -1,0 +1,84 @@
+.welcome-page {
+  background: #fff5e6;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 100vh;
+  position: relative;
+  text-align: center;
+  overflow: hidden;
+}
+
+.background-element {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 80%;
+  height: auto;
+  z-index: 0;
+}
+
+.content {
+  position: relative;
+  z-index: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.logo {
+  width: 300px;
+  height: auto;
+  margin-bottom: 40px;
+}
+
+.form-container {
+  background: rgba(255, 255, 255, 0.9);
+  padding: 30px 40px;
+  border-radius: 20px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+  text-align: center;
+  width: 100%; /* Ensure full width for the container */
+  max-width: 500px; /* Limit the maximum width */
+  display: flex;
+  flex-direction: column;
+  align-items: center; /* Center align items within the container */
+}
+
+input {
+  display: block;
+  width: calc(100% - 30px); /* Adjust width to consider padding */
+  padding: 15px;
+  margin: 10px 0;
+  border: 1px solid #000000;
+  border-radius: 20px;
+  font-size: 1em;
+}
+
+.button-container {
+  display: flex;
+  justify-content: space-between;
+  width: 100%; /* Ensure the buttons align properly */
+}
+
+button {
+  background-color: black;
+  color: white;
+  padding: 15px 30px;
+  border: none;
+  border-radius: 20px;
+  cursor: pointer;
+  font-size: 1.2em;
+  width: 45%; /* Adjust the width to fit within the container */
+}
+
+button:hover {
+  opacity: 0.8;
+}
+
+.footer {
+  margin-top: 40px;
+  font-size: 1.2em;
+  color: #555;
+}

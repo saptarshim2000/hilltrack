@@ -1,0 +1,157 @@
+.step-page {
+  background: #fff5e6;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 100vh;
+  position: relative;
+  text-align: center;
+  overflow: hidden;
+}
+
+.background-element {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 80%;
+  height: auto;
+  z-index: 0;
+}
+
+.content {
+  position: relative;
+  z-index: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.logo {
+  width: 300px;
+  height: auto;
+  margin-bottom: 40px;
+}
+
+.form-container {
+  background: rgba(255, 255, 255, 0.9);
+  padding: 30px 40px;
+  border-radius: 20px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+  text-align: center;
+  width: 100%;
+  max-width: 500px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+h2 {
+  font-size: 1.5em;
+  font-family: 'Montserrat', sans-serif;
+  margin-bottom: 20px;
+}
+
+.file-upload-container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 20px;
+}
+
+.custom-file-upload {
+  background-color: black;
+  color: white;
+  padding: 15px;
+  border-radius: 50%;
+  cursor: pointer;
+  font-size: 1em;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 22px; /* Ensure uniform size */
+  height: 22px; /* Ensure uniform size */
+  margin: 0 10px; /* Add margin for spacing */
+}
+
+.snap-button {
+  background-color: black;
+  color: white;
+  padding: 15px;
+  border-radius: 50%;
+  cursor: pointer;
+  font-size: 1em;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 50px; /* Ensure uniform size */
+  height: 50px; /* Ensure uniform size */
+  margin: 0 10px; /* Add margin for spacing */
+}
+
+.file-upload-container input[type="file"] {
+  display: none;
+}
+
+.file-name {
+  font-size: 1em;
+  color: black;
+  margin-left: 10px;
+  align-self: center; /* Align text vertically with the icons */
+}
+
+input[type="text"] {
+  display: block;
+  width: calc(100% - 30px);
+  padding: 15px;
+  margin: 10px 0;
+  border: 1px solid #000000;
+  border-radius: 20px;
+  font-size: 1em;
+}
+
+.button-container {
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
+}
+
+button {
+  background-color: black;
+  color: white;
+  padding: 15px 30px;
+  border: none;
+  border-radius: 20px;
+  cursor: pointer;
+  font-size: 1.2em;
+  width: 45%;
+}
+
+button:hover {
+  opacity: 0.8;
+}
+
+.footer {
+  margin-top: 40px;
+  font-size: 1.2em;
+  color: #555;
+}
+
+.camera-modal {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.8);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 10;
+}
+
+.camera-modal video {
+  width: 80%;
+  height: auto;
+  border-radius: 20px;
+}
