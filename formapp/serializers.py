@@ -1,7 +1,12 @@
 from rest_framework import serializers
-from .models import DriverInfo
+from .models import DriverInfo, VehicleInfo
 
 class DriverInfoSerializer(serializers.ModelSerializer):
     class Meta:
         model = DriverInfo
-        fields = ['first_name', 'last_name', 'contact_number', 'vehicle_number', 'number_of_parcels', 'notes', 'signatures']
+        fields = '__all__'
+
+class VehicleInfoSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = VehicleInfo
+        fields = '__all__'

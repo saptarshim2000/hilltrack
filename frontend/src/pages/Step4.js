@@ -1,55 +1,20 @@
-import React, { useRef, useState, useEffect } from 'react';
+import React, { useState, useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
+import SignatureCanvas from 'react-signature-canvas';
 import './Step4.css';
 import Background from '../components/HTLBG.png';  // Adjust the path to your background image
 import Logo from '../components/Hill Track Logo.png';  // Adjust the path to your logo
 
 const Step4 = ({ onSubmit }) => {
-  const canvasRef = useRef(null);
-  const isDrawing = useRef(false);
-  const lastX = useRef(0);
-  const lastY = useRef(0);
   const [submitted, setSubmitted] = useState(false);
+  const [signature, setSignature] = useState(null);
   const navigate = useNavigate();
+  const sigCanvas = React.useRef({});
 
-  useEffect(() => {
-    const canvas = canvasRef.current;
-    const ctx = canvas.getContext('2d');
-
-    const handleMouseDown = (e) => {
-      isDrawing.current = true;
-      [lastX.current, lastY.current] = [e.offsetX, e.offsetY];
-    };
-
-    const handleMouseMove = (e) => {
-      if (!isDrawing.current) return;
-      ctx.beginPath();
-      ctx.moveTo(lastX.current, lastY.current);
-      ctx.lineTo(e.offsetX, e.offsetY);
-      ctx.stroke();
-      [lastX.current, lastY.current] = [e.offsetX, e.offsetY];
-    };
-
-    const handleMouseUp = () => {
-      isDrawing.current = false;
-    };
-
-    canvas.addEventListener('mousedown', handleMouseDown);
-    canvas.addEventListener('mousemove', handleMouseMove);
-    canvas.addEventListener('mouseup', handleMouseUp);
-    canvas.addEventListener('mouseout', handleMouseUp);
-
-    return () => {
-      canvas.removeEventListener('mousedown', handleMouseDown);
-      canvas.removeEventListener('mousemove', handleMouseMove);
-      canvas.removeEventListener('mouseup', handleMouseUp);
-      canvas.removeEventListener('mouseout', handleMouseUp);
-    };
-  }, []);
+  const clear = () => sigCanvas.current.clear();
 
   const handleSubmit = () => {
-    const canvas = canvasRef.current;
-    const signatureData = canvas.toDataURL();
+    const signatureData = sigCanvas.current.getTrimmedCanvas().toDataURL('image/png');
     const data = { signatures: signatureData };
     console.log('Submitting data:', data);
     onSubmit(data, navigate);
@@ -61,7 +26,6 @@ const Step4 = ({ onSubmit }) => {
       const timer = setTimeout(() => {
         navigate('/');
       }, 2000);
-
       return () => clearTimeout(timer);
     }
   }, [submitted, navigate]);
@@ -73,9 +37,14 @@ const Step4 = ({ onSubmit }) => {
         <img src={Logo} alt="HillTrack by HDG" className="logo" />
         <div className="form-container">
           <h2>Signature</h2>
-          <canvas ref={canvasRef} width="400" height="200" className="signature-canvas"></canvas>
+          <SignatureCanvas 
+            penColor="black"
+            canvasProps={{ width: 400, height: 200, className: 'signature-canvas' }}
+            ref={sigCanvas}
+          />
           <div className="button-container">
             <button onClick={() => navigate('/step3')}>Prev</button>
+            <button onClick={clear}>Clear</button>
             <button onClick={handleSubmit}>Submit</button>
           </div>
           {submitted && <p>Vehicle Details Submitted Successfully</p>}

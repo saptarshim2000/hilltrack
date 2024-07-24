@@ -3,12 +3,11 @@ from django.http import HttpResponse
 from rest_framework import viewsets
 from rest_framework.decorators import api_view
 from rest_framework.response import Response
-from .models import DriverInfo
-from .serializers import DriverInfoSerializer
+from .models import DriverInfo, VehicleInfo
+from .serializers import DriverInfoSerializer, VehicleInfoSerializer
 from django.http import JsonResponse
 from django.shortcuts import render
 from django.http import HttpResponse
-
 
 def index(request):
     return render(request, 'index.html')
@@ -16,6 +15,13 @@ def index(request):
 class DriverInfoViewSet(viewsets.ModelViewSet):
     queryset = DriverInfo.objects.all()
     serializer_class = DriverInfoSerializer
+
+    def perform_create(self, serializer):
+        serializer.save()
+
+class VehicleInfoViewSet(viewsets.ModelViewSet):
+    queryset = VehicleInfo.objects.all()
+    serializer_class = VehicleInfoSerializer
 
     def perform_create(self, serializer):
         serializer.save()
