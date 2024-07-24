@@ -1,11 +1,13 @@
 .step-page {
-  position: relative;
-  background-color: #f5f5f5;
-  min-height: 100vh;
   display: flex;
   justify-content: center;
   align-items: center;
   flex-direction: column;
+  background-color: #fdecd2;
+  min-height: 100vh;
+  position: relative;
+  padding: 20px;
+  text-align: center;
 }
 
 .background-element {
@@ -14,15 +16,8 @@
   left: 0;
   width: 100%;
   height: 100%;
+  object-fit: cover;
   z-index: -1;
-}
-
-.content {
-  text-align: center;
-  background-color: white;
-  padding: 20px;
-  border-radius: 10px;
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
 }
 
 .logo {
@@ -31,28 +26,35 @@
 }
 
 .form-container {
-  margin-top: 20px;
+  background-color: rgba(255, 255, 255, 0.9);
+  padding: 20px;
+  border-radius: 10px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  max-width: 500px;
+  width: 100%;
 }
 
 .signature-canvas {
-  border: 1px solid #000;
-  border-radius: 5px;
-  margin-bottom: 10px;
+  border: 2px solid #000;
+  border-radius: 10px;
+  width: 100%;
+  height: 200px;
+  margin-bottom: 20px;
 }
 
 .button-container {
   display: flex;
   justify-content: space-between;
-  margin-top: 10px;
 }
 
 .button-container button {
-  background-color: black;
-  color: white;
-  padding: 10px 20px;
+  background-color: #000;
+  color: #fff;
   border: none;
-  border-radius: 5px;
+  border-radius: 10px;
+  padding: 10px 20px;
   cursor: pointer;
+  margin: 5px;
 }
 
 .button-container button:hover {
@@ -61,6 +63,30 @@
 
 .footer {
   margin-top: 20px;
-  font-size: 0.9em;
+  font-size: 0.8rem;
   color: #555;
+}
+
+@media (max-width: 768px) {
+  .form-container {
+    padding: 15px;
+  }
+
+  .button-container button {
+    padding: 8px 16px;
+  }
+}
+
+@media (max-width: 480px) {
+  .logo {
+    width: 100px;
+  }
+
+  .form-container {
+    padding: 10px;
+  }
+
+  .button-container button {
+    padding: 6px 12px;
+  }
 }
