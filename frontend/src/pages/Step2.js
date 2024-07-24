@@ -6,18 +6,17 @@ import Logo from '../components/Hill Track Logo.png';  // Adjust the path to you
 
 const Step2 = ({ onNext }) => {
   const [numberOfParcels, setNumberOfParcels] = useState('');
-  const [file, setFile] = useState(null);
+  const [image, setImage] = useState(null);
   const navigate = useNavigate();
 
-  const handleFileChange = (event) => {
-    const selectedFile = event.target.files[0];
-    setFile(selectedFile);
+  const handleSubmit = () => {
+    if (numberOfParcels.trim()) {
+      onNext(navigate, { numberOfParcels, image });
+    }
   };
 
-  const handleSubmit = () => {
-    if (numberOfParcels.trim() && file) {
-      onNext(navigate, { numberOfParcels, file });
-    }
+  const handleImageChange = (e) => {
+    setImage(e.target.files[0]);
   };
 
   return (
@@ -33,13 +32,11 @@ const Step2 = ({ onNext }) => {
             value={numberOfParcels}
             onChange={e => setNumberOfParcels(e.target.value)}
           />
-          <h2>Upload Image</h2>
           <input
             type="file"
             accept="image/*"
             capture="environment"
-            onChange={handleFileChange}
-            className="file-input"
+            onChange={handleImageChange}
           />
           <div className="button-container">
             <button onClick={() => navigate('/step1')}>Prev</button>
