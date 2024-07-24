@@ -8,7 +8,7 @@ from .serializers import DriverInfoSerializer, VehicleInfoSerializer
 from django.shortcuts import render
 
 def index(request):
-    return render(request, 'index.html')
+    return render(request, 'formapp/index.html')
 
 class DriverInfoViewSet(viewsets.ModelViewSet):
     queryset = DriverInfo.objects.all()
