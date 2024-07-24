@@ -2,7 +2,7 @@ import React, { useEffect, useState } from 'react';
 import axios from 'axios';
 import { Link } from 'react-router-dom';
 import './AdminPage.css';
-import Logo from '../components/Hill Track Logo.png';
+import Logo from '../components/HillTrackLogo.png';
 
 const AdminPage = () => {
   const [data, setData] = useState([]);
@@ -10,7 +10,7 @@ const AdminPage = () => {
   useEffect(() => {
     const fetchData = async () => {
       try {
-        const response = await axios.get('/api/driverinfo/');
+        const response = await axios.get('http://localhost:8000/api/driverinfo/');
         setData(response.data);
       } catch (error) {
         console.error('Error fetching data:', error);
@@ -25,11 +25,11 @@ const AdminPage = () => {
       ...data.map(item => [
         item.first_name,
         item.last_name,
-        item.contact_number,
-        item.vehicle_number,
-        item.number_of_parcels,
+        item.contact,
+        item.vehicle_no,
+        item.parcel_qty,
         item.notes,
-        item.signatures
+        item.signature
       ])
     ].map(e => e.join(",")).join("\n");
 
@@ -70,16 +70,16 @@ const AdminPage = () => {
                 <tr key={index}>
                   <td className="custom-cell">{row.first_name}</td>
                   <td className="custom-cell">{row.last_name}</td>
-                  <td className="custom-cell">{row.contact_number}</td>
-                  <td className="custom-cell">{row.vehicle_number}</td>
-                  <td className="custom-cell">{row.number_of_parcels}</td>
+                  <td className="custom-cell">{row.contact}</td>
+                  <td className="custom-cell">{row.vehicle_no}</td>
+                  <td className="custom-cell">{row.parcel_qty}</td>
                   <td className="custom-cell">{row.notes}</td>
-                  <td className="custom-cell"><img src={row.signatures} alt="Signature" style={{ width: '100px' }} /></td>
+                  <td className="custom-cell"><img src={row.signature} alt="Signature" style={{ width: '100px' }} /></td>
                 </tr>
               ))
             ) : (
               <tr>
-                <td className="custom-cell" colSpan="7">No data available</td>
+                <td colSpan="7" className="custom-cell">No Data Available</td>
               </tr>
             )}
           </tbody>

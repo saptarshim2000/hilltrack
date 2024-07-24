@@ -2,13 +2,13 @@ import React, { useRef, useState, useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
 import SignatureCanvas from 'react-signature-canvas';
 import './Step4.css';
-import Background from '../components/HTLBG.png';
-import Logo from '../components/Hill Track Logo.png';
+import Background from '../components/HTLBG.png';  // Adjust the path to your background image
+import Logo from '../components/HillTrackLogo.png';  // Adjust the path to your logo
 
 const Step4 = ({ onSubmit }) => {
+  const sigCanvas = useRef({});
   const [submitted, setSubmitted] = useState(false);
   const navigate = useNavigate();
-  const sigCanvas = useRef({});
 
   const handleSubmit = () => {
     const signatureData = sigCanvas.current.getTrimmedCanvas().toDataURL('image/png');
@@ -22,7 +22,6 @@ const Step4 = ({ onSubmit }) => {
       const timer = setTimeout(() => {
         navigate('/');
       }, 2000);
-
       return () => clearTimeout(timer);
     }
   }, [submitted, navigate]);
@@ -36,7 +35,7 @@ const Step4 = ({ onSubmit }) => {
           <h2>Signature</h2>
           <SignatureCanvas
             ref={sigCanvas}
-            canvasProps={{ className: 'signature-canvas' }}
+            canvasProps={{ width: 400, height: 200, className: 'signature-canvas' }}
           />
           <div className="button-container">
             <button onClick={() => navigate('/step3')}>Prev</button>

@@ -7,26 +7,23 @@
 
 .header {
   display: flex;
-  flex-wrap: wrap;
-  justify-content: space-between;
+  flex-direction: column;
+  justify-content: center;
   align-items: center;
   margin-bottom: 20px;
-  width: 90%;
-  margin: 0 auto;
 }
 
 .logo {
-  width: 150px;
-  height: auto;
-  margin-left: 10px;
-  margin-top: 10px;
+  width: 250px;
+  height: 50px;
+  margin: 10px;
   cursor: pointer;
 }
 
 .title {
-  font-size: 2rem;
-  flex-grow: 1;
+  font-size: 2.5rem;
   text-align: center;
+  margin: 10px 0;
 }
 
 .download-button {
@@ -36,7 +33,7 @@
   border: none;
   border-radius: 10px;
   cursor: pointer;
-  margin-right: 10px;
+  margin: 10px 0;
 }
 
 .download-button:hover {
@@ -46,14 +43,15 @@
 .table-wrapper {
   display: flex;
   justify-content: center;
+  width: 100%;
   overflow-x: auto;
 }
 
 .custom-table {
-  width: 100%;
-  max-width: 90%;
+  width: 90%;
   border-collapse: separate;
   border-spacing: 15px;
+  min-width: 600px;
 }
 
 .custom-table th,
@@ -72,47 +70,4 @@
 
 .custom-table td {
   height: 50px;
-}
-
-@media (max-width: 768px) {
-  .title {
-    font-size: 1.5rem;
-  }
-
-  .download-button {
-    padding: 10px 20px;
-    margin-bottom: 10px;
-  }
-
-  .custom-table th,
-  .custom-table td {
-    padding: 8px;
-  }
-
-  .custom-table td img {
-    width: 50px;
-  }
-}
-
-@media (max-width: 480px) {
-  .logo {
-    width: 100px;
-  }
-
-  .title {
-    font-size: 1.2rem;
-  }
-
-  .download-button {
-    padding: 8px 16px;
-  }
-
-  .custom-table th,
-  .custom-table td {
-    padding: 6px;
-  }
-
-  .custom-table td img {
-    width: 40px;
-  }
 }
