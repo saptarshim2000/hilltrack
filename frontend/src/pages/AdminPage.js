@@ -2,7 +2,7 @@ import React, { useEffect, useState } from 'react';
 import axios from 'axios';
 import { Link } from 'react-router-dom';
 import './AdminPage.css';
-import Logo from '../components/HillTrackLogo.png';
+import Logo from '../components/Hill Track Logo.png';
 
 const AdminPage = () => {
   const [data, setData] = useState([]);

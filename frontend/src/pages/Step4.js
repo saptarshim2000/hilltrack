@@ -3,7 +3,7 @@ import { useNavigate } from 'react-router-dom';
 import SignatureCanvas from 'react-signature-canvas';
 import './Step4.css';
 import Background from '../components/HTLBG.png';  // Adjust the path to your background image
-import Logo from '../components/HillTrackLogo.png';  // Adjust the path to your logo
+import Logo from '../components/Hill Track Logo.png';  // Adjust the path to your logo
 
 const Step4 = ({ onSubmit }) => {
   const sigCanvas = useRef({});
