@@ -1,8 +1,8 @@
 import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import './Step2.css';
-import Background from '../components/HTLBG.png';  // Adjust the path to your background image
-import Logo from '../components/Hill Track Logo.png';  // Adjust the path to your logo
+import Background from '../components/HTLBG.png';
+import Logo from '../components/Hill Track Logo.png';
 
 const Step2 = ({ onNext }) => {
   const [numberOfParcels, setNumberOfParcels] = useState('');
@@ -10,13 +10,14 @@ const Step2 = ({ onNext }) => {
   const navigate = useNavigate();
 
   const handleSubmit = () => {
-    if (numberOfParcels.trim()) {
+    if (numberOfParcels.trim() && image) {
       onNext(navigate, { numberOfParcels, image });
     }
   };
 
   const handleImageChange = (e) => {
-    setImage(e.target.files[0]);
+    const file = e.target.files[0];
+    setImage(file);
   };
 
   return (
@@ -25,7 +26,7 @@ const Step2 = ({ onNext }) => {
       <div className="content">
         <img src={Logo} alt="HillTrack by HDG" className="logo" />
         <div className="form-container">
-          <h2>Enter Number of Packages</h2>
+          <h2>Enter Number of Packages and Upload an Image</h2>
           <input
             type="number"
             placeholder="Number of Packages"
