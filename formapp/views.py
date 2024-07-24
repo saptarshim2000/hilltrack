@@ -6,6 +6,12 @@ from rest_framework.response import Response
 from .models import DriverInfo
 from .serializers import DriverInfoSerializer
 from django.http import JsonResponse
+from django.shortcuts import render
+from django.http import HttpResponse
+
+
+def home(request):
+    return HttpResponse("<h1>Welcome to Hilltrack</h1>")
 
 class DriverInfoViewSet(viewsets.ModelViewSet):
     queryset = DriverInfo.objects.all()
