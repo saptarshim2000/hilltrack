@@ -9,7 +9,7 @@ from .serializers import DriverInfoSerializer
 import os
 
 def index(request):
-    return render(request, os.path.join('frontend', 'build', 'index.html'))
+    return render(request, 'frontend/build/index.html')
 
 class DriverInfoViewSet(viewsets.ModelViewSet):
     queryset = DriverInfo.objects.all()
