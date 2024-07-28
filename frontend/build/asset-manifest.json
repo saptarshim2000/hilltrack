@@ -1,0 +1,16 @@
+{
+  "files": {
+    "main.css": "/static/css/main.ac462760.css",
+    "main.js": "/static/js/main.82e14651.js",
+    "static/media/bbg.png": "/static/media/bbg.41313b05d7178b0782ea.png",
+    "static/media/HTLBG.png": "/static/media/HTLBG.dddb1f0bd13705491298.png",
+    "static/media/Hill Track Logo.png": "/static/media/Hill Track Logo.e63e743f5b545cf61489.png",
+    "index.html": "/index.html",
+    "main.ac462760.css.map": "/static/css/main.ac462760.css.map",
+    "main.82e14651.js.map": "/static/js/main.82e14651.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.ac462760.css",
+    "static/js/main.82e14651.js"
+  ]
+}
