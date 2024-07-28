@@ -6,9 +6,10 @@ from rest_framework.response import Response
 import csv
 from .models import DriverInfo
 from .serializers import DriverInfoSerializer
+import os
 
 def index(request):
-    return render(request, 'index.html')
+    return render(request, os.path.join('frontend', 'build', 'index.html'))
 
 class DriverInfoViewSet(viewsets.ModelViewSet):
     queryset = DriverInfo.objects.all()
